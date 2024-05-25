@@ -89,3 +89,4 @@ class Timer {
 }
 
 const timerPage = new Timer();
+// timerPage.render();

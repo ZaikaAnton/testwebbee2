@@ -2,7 +2,7 @@ class Main {
   clear() {
     ROOT_MAIN.innerHTML = "";
   }
-  render() {
+  render(controlBar, listMagazine) {
     MAIN_RESUME.forEach(({ id, name, img, contacts, skills }) => {
       const html = `
 <div class="container-fluid mt-4">
@@ -35,14 +35,16 @@ class Main {
       </div>
     </div>
     <div class="col-lg-9 col-md-8 col-12">
-      ${listMagazine.create()}
+        ${listMagazine.create()}
     </div>
   </div>
 </div>
       `;
       ROOT_MAIN.innerHTML = html;
     });
+    console.log("Я рендерюсь");
   }
 }
 
 const mainPage = new Main();
+mainPage.render(controlBar, listMagazine);

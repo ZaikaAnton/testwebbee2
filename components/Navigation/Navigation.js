@@ -1,12 +1,14 @@
 class Navigation {
   constructor() {
-    this.activePage = "";
+    this.activePage = "resume";
+    this.controlBar = new ControlBar();
+    this.listMagazine = new Magazine();
   }
 
   handleOpenResume() {
     mapPage.clear();
     timerPage.clear();
-    mainPage.render();
+    mainPage.render(this.controlBar, this.listMagazine);
     mapPage.stopTimer();
     this.setActivePage("resume");
   }
@@ -47,9 +49,15 @@ class Navigation {
         ${headerNavBar.create()}
         <div class="nav-container d-flex flex-wrap justify-content-between align-items-center">
           <div class="btn-group mb-2 mb-lg-0">
-              <button id="resume-btn" onClick='navigationComponent.handleOpenResume()' class="btn btn-outline-primary">Resume</button>
-              <button id="map-btn" onClick='navigationComponent.handleOpenMap()' class="btn btn-outline-primary">Map</button>
-              <button id="timer-btn" onClick='navigationComponent.handleOpenTimer()' class="btn btn-outline-primary">Timer</button>
+              <button id="resume-btn" onClick='navigationComponent.handleOpenResume()' class="btn btn-outline-primary ${
+                this.activePage === "resume" ? "active-btn" : ""
+              }">Resume</button>
+              <button id="map-btn" onClick='navigationComponent.handleOpenMap()' class="btn btn-outline-primary ${
+                this.activePage === "map" ? "active-btn" : ""
+              }">Map</button>
+              <button id="timer-btn" onClick='navigationComponent.handleOpenTimer()' class="btn btn-outline-primary ${
+                this.activePage === "timer" ? "active-btn" : ""
+              }">Timer</button>
           </div>
           <div class="btn-group mb-2 mb-lg-0">
               <button id="btn1" class="btn btn-outline-primary">Notes</button>
@@ -60,7 +68,6 @@ class Navigation {
         </div>
         <hr class="nav-line">
     `;
-
     ROOT_NAVIGATION.innerHTML = htmlNavigation;
   }
 }
