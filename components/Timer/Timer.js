@@ -48,7 +48,7 @@ class Timer {
 
   handleToRefresh() {
     document.getElementById("refresh-button").addEventListener("click", () => {
-      location.reload();
+      timerPage.setStartTime();
     });
   }
 
