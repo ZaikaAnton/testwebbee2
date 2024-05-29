@@ -42,9 +42,8 @@ class Main {
       `;
       ROOT_MAIN.innerHTML = html;
     });
-    console.log("Я рендерюсь");
+    return ROOT_MAIN.innerHTML;
   }
 }
 
 const mainPage = new Main();
-mainPage.render(controlBar, listMagazine);

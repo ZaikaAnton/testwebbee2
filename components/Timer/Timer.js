@@ -85,8 +85,8 @@ class Timer {
         `;
     ROOT_TIMER.innerHTML = html;
     this.handleToRefresh();
+    return html;
   }
 }
 
 const timerPage = new Timer();
-// timerPage.render();
