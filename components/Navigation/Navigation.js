@@ -51,7 +51,7 @@ class Navigation {
     }
   }
 
-  // Новая универсальная функция для обработки переходов
+  // Функция для обработки переходов
   handlePageChange(event, page, path) {
     event.preventDefault();
     if (this.isActivePage(page)) return; // Проверка текущей активной страницы
